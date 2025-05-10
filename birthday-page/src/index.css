@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Lora:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Lora', serif; /* Default body font */
+}
+
+h1, h2 {
+  font-family: 'Allura', cursive; /* Headings */
+}
+
+.each-slide > img {
+  display: block;
+  margin: auto;
+}
