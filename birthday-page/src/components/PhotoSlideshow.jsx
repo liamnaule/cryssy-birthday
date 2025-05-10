@@ -1,7 +1,7 @@
 import { Slide } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
+import "react-slideshow-image/dist/styles.css"; 
 
-// Import images explicitly
+// Import images
 import photo1 from "../assets/photos/photo 1.webp";
 import photo4 from "../assets/photos/photo 4.webp";
 import photo5 from "../assets/photos/photo 5.webp";
@@ -28,19 +28,30 @@ const images = [
 
 const PhotoSlideshow = () => {
   const slideProperties = {
-    duration: 3000,
-    transitionDuration: 500,
+    duration: 2000, // 2 seconds per slide
+    transitionDuration: 500, // 0.5-second transition
     infinite: true,
-    indicators: true,
-    arrows: true,
+    indicators: true, // Show dots for navigation
+    arrows: true, // Show arrows for manual navigation
+    autoplay: true, // Explicitly enable autoplay
+    canSwipe: true, // Enable swipe on touch devices
+    easing: "ease", // Smooth transition effect
   };
 
   return (
     <div className="slideshow-container">
       <Slide {...slideProperties}>
         {images.map((image, index) => (
-          <div key={index} className="each-slide">
-            <img src={image} alt={`Slide ${index + 1}`} className="slide-image" />
+          <div className="each-slide" key={index}>
+            <img
+              src={image}
+              alt={`Slide ${index + 1}`}
+              className="slide-image"
+              onError={(e) => {
+                console.error(`Failed to load image ${index + 1}: ${image}`);
+                e.target.style.display = "none"; // Hide broken images
+              }}
+            />
           </div>
         ))}
       </Slide>

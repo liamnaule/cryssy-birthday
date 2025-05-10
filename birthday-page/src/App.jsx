@@ -8,8 +8,8 @@ import "./App.css";
 function App() {
   const [isCountdownComplete, setIsCountdownComplete] = useState(false);
 
-  // Google Drive video link (replace with your actual link)
-  const videoUrl = "https://drive.google.com/file/d/1QAiV7QSqrKTp6Iss7bpbV4ibU-Lb8Qi6/view?usp=sharing";
+  // Google Drive video link 
+  const videoUrl = "https://drive.google.com/file/d/1QAiV7QSqrKTp6Iss7bpbV4ibU-Lb8Qi6/preview";
 
   // Callback when countdown completes
   const handleCountdownComplete = () => {
@@ -21,6 +21,7 @@ function App() {
       {isCountdownComplete ? (
         <>
           <ConfettiEffect />
+          <h1 className="app-title">Happy Birthday, Beautiful!</h1> {/* Add header above video */}
           <div className="video-message-container">
             <iframe
               src={videoUrl}
@@ -29,15 +30,19 @@ function App() {
               allowFullScreen
             ></iframe>
             <BirthdayMessage />
+            <PhotoSlideshow />
           </div>
         </>
       ) : (
         <>
-          <h1 className="app-title">Happy Birthday, beautiful!</h1>
+          <h1 className="app-title">Happy Birthday, Beautiful!</h1>
           <CountdownTimer onComplete={handleCountdownComplete} />
           <PhotoSlideshow />
         </>
       )}
+      <footer className="footer">
+        Made with Love <span className="heart">💕</span>
+      </footer>
     </div>
   );
 }

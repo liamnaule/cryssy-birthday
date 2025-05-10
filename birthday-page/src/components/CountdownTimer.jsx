@@ -10,7 +10,7 @@ const CountdownTimer = ({ onComplete }) => {
       return null;
     }
     return (
-      <div>
+      <div className="special-countdown-container">
         <h3 className="countdown-header">Countdown to Your Special Day:</h3>
         <div className="countdown-container">
           <div className="countdown-item">
